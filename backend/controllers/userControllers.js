@@ -1,4 +1,4 @@
 exports.home = (req,res)=>{
-    res.send("hello world12")
+    res.send("hello world")
 }
 
