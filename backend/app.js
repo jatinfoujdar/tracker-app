@@ -1,11 +1,9 @@
 require("dotenv").config()
 const express = require('express')
 const app = express()
-const port = 4000
+const userRoutes = require("./routes/userRoutes")
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use('/', userRoutes)
 
 
 
