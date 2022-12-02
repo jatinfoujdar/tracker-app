@@ -1,5 +1,4 @@
-const home = (req,res)=>{
+exports.home = (req,res)=>{
     res.send("hello world12")
 }
 
-module.exports = {home};
