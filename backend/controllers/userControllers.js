@@ -1,3 +1,5 @@
+const User = require("../model/userSchema")
+
 exports.home = (req,res)=>{
     res.send("hello world")
 }

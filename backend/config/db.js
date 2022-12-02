@@ -10,4 +10,4 @@ const ConnectToDB = ()=>{
     })
 }
 
-module.exports = ConnectToDB();
+module.exports = ConnectToDB;
