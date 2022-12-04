@@ -6,20 +6,38 @@ exports.home = (req,res)=>{
 exports.createUser = async(req,res) => {
     try {
         const {name ,email} = req.body;
-        if(!name || !email){
+        if(!name && !email){
         throw new Error("name and email both are req")  
         }
-        const userExits = await user.findOne({email});
+        const userExits = await User.findOne({email});
         if (userExits) {
             throw new Error("already in system")
         }
-        const User  = await user.create({name,email})
+        const user  = await User.create({name,email})
         res.status(201).json({
             success:true,
-            message:"user create successfully"
+            message:"user create successfully",
+            user
         })
     } 
     catch (error) {
-        
+        console.log(error);
+    }
+}
+
+
+exports.getUser = async(req,res)=>{
+    try {
+        const users = await User.find();
+        res.send(200).json({
+            success:true,
+            users,
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            success:false,
+            message:error.message,
+        })
     }
 }

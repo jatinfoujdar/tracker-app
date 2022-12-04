@@ -10,7 +10,7 @@ router.get("/hh",(req,res)=> {
 
 router.get("/",home)
 
-router.get("/createUser", createUser)
+router.post("/createUser", createUser)
 
 
 
