@@ -1,5 +1,6 @@
 const express = require("express");
-const { home } = require("../controllers/userControllers")
+const { home, createUser } = require("../controllers/userControllers");
+const { create } = require("../model/userSchema");
 const router = express.Router();
 
 
@@ -9,6 +10,7 @@ router.get("/hh",(req,res)=> {
 
 router.get("/",home)
 
+router.get("/createUser", createUser)
 
 
 
