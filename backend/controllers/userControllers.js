@@ -60,6 +60,24 @@ exports.searchUser = async(req,res)=>{
 }    
 
 
+
+exports.updateUser = async(req,res)=>{
+    try {
+        const users = await User.findByIdAndUpdate(req.params.id , req.body)
+        res.status(200).json({
+            success:true,
+            users,
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            success:false,
+            message:error.message,
+        })
+    }
+}  
+
+
 exports.deleteUser = async(req,res)=>{
     try {
         const users = await User.findByIdAndDelete(req.params.id , req.body)
@@ -69,7 +87,7 @@ exports.deleteUser = async(req,res)=>{
         })
     } catch (error) {
         console.log(error);
-        res.status(400).json({
+        res.status(401).json({
             success:false,
             message:error.message,
         })
